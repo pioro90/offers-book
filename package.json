@@ -1,0 +1,19 @@
+{
+  "name": "offers-book",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pioro90/offers-book.git"
+  },
+  "author": "Dawid P.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pioro90/offers-book/issues"
+  },
+  "homepage": "https://github.com/pioro90/offers-book#readme"
+}
