@@ -1,6 +1,6 @@
-import { User } from '../../../src/user/core/domain/user';
+import { CreateUserDto } from '../../../src/user/core/usecases/createuser/create-user-dto';
 
-export default [
+const usersMock: CreateUserDto[] = [
     {
         firstName: 'Michael',
         lastName: 'Nowak',
@@ -25,4 +25,7 @@ export default [
         email: 'paul@gmail.com',
         password: 'aaaa1111'
     }
-] as User[];
+];
+
+
+export default usersMock;

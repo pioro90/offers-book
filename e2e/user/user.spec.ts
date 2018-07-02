@@ -1,7 +1,7 @@
 import * as httpStatus from 'http-status';
 
 import { appTest, chaiRequest } from '../common';
-import { cleanDatabase, users } from './common';
+import { cleanUsersDatabase, usersMock } from './common';
 
 describe('Users', () => {
 
@@ -9,13 +9,13 @@ describe('Users', () => {
 
     after(() => appTest.shutDown());
 
-    afterEach(() => cleanDatabase());
+    afterEach(() => cleanUsersDatabase());
 
     describe('POST /users', () => {
         it('should return user', async () => {
             const res: any = await chaiRequest
                 .post('/users')
-                .send(users[0]);
+                .send(usersMock[0]);
 
             res.body.should.have.all.keys('createdAt',
                 'email',
@@ -29,7 +29,7 @@ describe('Users', () => {
 
     describe('GET /users', () => {
         before(() => {
-            return Promise.all(users.map(user => {
+            return Promise.all(usersMock.map(user => {
                 return chaiRequest
                     .post('/users')
                     .send(user)
@@ -54,7 +54,7 @@ describe('Users', () => {
         before(async () => {
             const res: any = await chaiRequest
                 .post('/users')
-                .send(users[0]);
+                .send(usersMock[0]);
             userId = res.body.id;
         });
 
@@ -82,7 +82,7 @@ describe('Users', () => {
         before(async () => {
             const res: any = await chaiRequest
                 .post('/users')
-                .send(users[0]);
+                .send(usersMock[0]);
             userId = res.body.id;
         });
 
@@ -99,7 +99,7 @@ describe('Users', () => {
         before(async () => {
             const res: any = await chaiRequest
                 .post('/users')
-                .send(users[0]);
+                .send(usersMock[0]);
             userId = res.body.id;
         });
 

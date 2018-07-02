@@ -1,2 +1,2 @@
-export { default as cleanDatabase } from './clean-database';
-export { default as users } from './users.data';
+export { default as cleanUsersDatabase } from './clean-users-database';
+export { default as usersMock } from './users-mock';
