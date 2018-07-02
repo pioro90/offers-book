@@ -1,13 +1,7 @@
-import * as chai from 'chai';
+import * as httpStatus from 'http-status';
 
-import { chaiRequest } from '../common/chai-request';
-import users from './common/users.data';
-
-import cleanDatabase from './common/clean-database';
-import { appTest } from '../common/app-test';
-import { NO_CONTENT, OK } from 'http-status';
-
-chai.should();
+import { appTest, chaiRequest } from '../common';
+import { cleanDatabase, users } from './common';
 
 describe('Users', () => {
 
@@ -95,7 +89,7 @@ describe('Users', () => {
         it('should return no content status', async () => {
             const res: any = await chaiRequest
                 .del(`/users/${userId}`);
-            res.should.have.status(NO_CONTENT)
+            res.should.have.status(httpStatus.NO_CONTENT)
         });
     });
 
@@ -115,7 +109,7 @@ describe('Users', () => {
                 .send({
                     firstName: 'David'
                 });
-            res.should.have.status(OK);
+            res.should.have.status(httpStatus.OK);
         });
     });
 
