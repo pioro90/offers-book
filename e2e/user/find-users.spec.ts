@@ -1,17 +1,17 @@
 import * as chai from 'chai';
 
 import users from './data/users.data';
-import { chaiRequest } from './shared/chai-request';
-import { UserAppTest } from './shared/user-app.test';
-import { app } from '../src/app';
+import { chaiRequest } from '../common/chai-request';
+import { UserAppTest } from '../common/user-app.test';
+import { appTest } from '../common/app-test';
 
 chai.should();
 
 
-describe('Find users', () => {
+describe('GET /users', () => {
 
     before(async () => {
-        await app.startUp();
+        await appTest.startUp();
         await Promise.all(users.map(user => {
             return chaiRequest
                 .post('/users')
@@ -21,7 +21,7 @@ describe('Find users', () => {
 
     after(async () => {
         await UserAppTest.cleanDatabase();
-        await app.shutDown();
+        await appTest.shutDown();
     });
 
 

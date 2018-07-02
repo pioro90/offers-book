@@ -1,22 +1,23 @@
 import * as chai from 'chai';
 
-import { chaiRequest } from './shared/chai-request';
+import { chaiRequest } from '../common/chai-request';
 import users from './data/users.data';
-import { app } from '../src/app';
-import { UserAppTest } from './shared/user-app.test';
+
+import { UserAppTest } from '../common/user-app.test';
+import { appTest } from '../common/app-test';
 
 chai.should();
 
 
-describe('Create user', () => {
+describe('POST /users', () => {
 
     before(() => {
-        return app.startUp();
+        return appTest.startUp();
     });
 
     after(async () => {
         await UserAppTest.cleanDatabase();
-        await app.shutDown();
+        await appTest.shutDown();
     });
 
     it('should return created user id', async () => {

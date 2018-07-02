@@ -1,14 +1,10 @@
 import * as mongoose from 'mongoose';
 import { DatabaseConfig } from './common/config/database/database-config';
 
-import getDatabaseConfig from './common/config/database/get-database-config';
-
-
 export class AppDatabase {
     databaseUri: string;
 
-    constructor() {
-        const databaseConfig: DatabaseConfig = getDatabaseConfig();
+    constructor(databaseConfig: DatabaseConfig) {
         this.databaseUri = `mongodb://${databaseConfig.host}:${databaseConfig.port}/${databaseConfig.name}`;
     }
 
@@ -42,5 +38,3 @@ export class AppDatabase {
         });
     }
 }
-
-export const appDatabase = new AppDatabase();

@@ -1,7 +1,9 @@
 export class DatabaseConfig {
-    host: string;
-    port: number;
-    name: string;
-    user: string;
-    password: string;
+    constructor(
+        public host: string,
+        public port: number,
+        public name: string,
+        public user: string,
+        public password: string
+    ) {}
 }

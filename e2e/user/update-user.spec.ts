@@ -1,18 +1,19 @@
 import * as chai from 'chai';
 import { OK } from 'http-status';
 import users from './data/users.data';
-import { chaiRequest } from './shared/chai-request';
-import { UserAppTest } from './shared/user-app.test';
-import { app } from '../src/app';
+import { chaiRequest } from '../common/chai-request';
+import { UserAppTest } from '../common/user-app.test';
+import { appTest } from '../common/app-test';
+
 
 chai.should();
 
 
-describe('Update user', () => {
+describe('PUT /users/:id', () => {
     let userId;
 
     before(async () => {
-        await app.startUp();
+        await appTest.startUp();
 
         const res: any = await chaiRequest
                 .post('/users')
@@ -22,7 +23,7 @@ describe('Update user', () => {
 
     after(async () => {
         await UserAppTest.cleanDatabase();
-        await app.shutDown();
+        await appTest.shutDown();
     });
 
     it('should return ok status', async () => {

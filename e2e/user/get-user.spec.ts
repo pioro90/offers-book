@@ -1,18 +1,18 @@
 import * as chai from 'chai';
 
-import { chaiRequest } from './shared/chai-request';
+import { chaiRequest } from '../common/chai-request';
 import users from './data/users.data';
-import { UserAppTest } from './shared/user-app.test';
-import { app } from '../src/app';
+import { UserAppTest } from '../common/user-app.test';
+import { appTest } from '../common/app-test';
 
 chai.should();
 
 
-describe('Get user', () => {
+describe('GET /users/:id', () => {
     let userId;
 
     before(async () => {
-        await app.startUp();
+        await appTest.startUp();
         const res: any = await chaiRequest
             .post('/users')
             .send(users[0]);
@@ -21,7 +21,7 @@ describe('Get user', () => {
 
     after(async () => {
         await UserAppTest.cleanDatabase();
-        await app.shutDown();
+        await appTest.shutDown();
     });
 
     it('should return user', async () => {
