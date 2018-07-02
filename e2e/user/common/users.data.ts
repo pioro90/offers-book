@@ -1,3 +1,5 @@
+import { User } from '../../../src/user/core/domain/user';
+
 export default [
     {
         firstName: 'Michael',
@@ -23,4 +25,4 @@ export default [
         email: 'paul@gmail.com',
         password: 'aaaa1111'
     }
-];
+] as User[];
