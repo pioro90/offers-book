@@ -12,7 +12,7 @@ describe('Users', () => {
     afterEach(() => cleanDatabase());
 
     describe('POST /users', () => {
-        it('should return created user', async () => {
+        it('should return user', async () => {
             const res: any = await chaiRequest
                 .post('/users')
                 .send(users[0]);
