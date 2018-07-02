@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
-import { UpdateUserDto } from '../core/usecases/updateuser/update-user-dto';
-import { IUpdateUserProvider } from '../core/usecases/updateuser/update-user-provider';
-import { UpdateUserProvider } from '../dataproviders/update-user-provider';
-import { userModel } from '../dataproviders/database/user-model';
-import { UpdateUserUseCase } from '../core/usecases/updateuser/update-user-use-case';
+import { UpdateUserDto } from '../../core/usecases/updateuser/update-user-dto';
+import { IUpdateUserProvider } from '../../core/usecases/updateuser/update-user-provider';
+import { UpdateUserProvider } from '../database/update-user-provider';
+import { userModel } from '../database/model/user-model';
+import { UpdateUserUseCase } from '../../core/usecases/updateuser/update-user-use-case';
 
 
 export default async (req: Request, res: Response, next: NextFunction): Promise<void> => {

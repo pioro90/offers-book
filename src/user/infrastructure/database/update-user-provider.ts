@@ -1,6 +1,6 @@
-import { IUpdateUserProvider } from '../core/usecases/updateuser/update-user-provider';
-import { UpdateUserDto } from '../core/usecases/updateuser/update-user-dto';
-import { IUser } from './database/user-model';
+import { IUpdateUserProvider } from '../../core/usecases/updateuser/update-user-provider';
+import { UpdateUserDto } from '../../core/usecases/updateuser/update-user-dto';
+import { IUser } from './model/user-model';
 import { Model } from 'mongoose';
 
 export class UpdateUserProvider implements IUpdateUserProvider {

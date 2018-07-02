@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
-import { IGetUserProvider } from '../core/usecases/getuser/get-user-provider';
-import { GetUserProvider } from '../dataproviders/get-user-provider';
-import { userModel } from '../dataproviders/database/user-model';
-import { GetUserUseCase } from '../core/usecases/getuser/get-user-use-case';
-import { User } from '../core/domain/user';
+import { IGetUserProvider } from '../../core/usecases/getuser/get-user-provider';
+import { GetUserProvider } from '../database/get-user-provider';
+import { userModel } from '../database/model/user-model';
+import { GetUserUseCase } from '../../core/usecases/getuser/get-user-use-case';
+import { User } from '../../core/domain/user';
 
 
 export default async (req: Request, res: Response, next: NextFunction): Promise<void> => {

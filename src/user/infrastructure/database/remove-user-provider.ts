@@ -1,5 +1,5 @@
-import { IRemoveUserProvider } from '../core/usecases/removeuser/remove-user-provider';
-import { IUser } from './database/user-model';
+import { IRemoveUserProvider } from '../../core/usecases/removeuser/remove-user-provider';
+import { IUser } from './model/user-model';
 import { Model } from 'mongoose';
 
 export class RemoveUserProvider implements IRemoveUserProvider {

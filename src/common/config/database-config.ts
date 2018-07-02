@@ -1,3 +1,5 @@
+import * as config from 'config';
+
 export class DatabaseConfig {
     constructor(
         public host: string,
@@ -6,4 +8,8 @@ export class DatabaseConfig {
         public user: string,
         public password: string
     ) {}
+}
+
+export default (): DatabaseConfig => {
+    return config.get('database') as DatabaseConfig;
 }

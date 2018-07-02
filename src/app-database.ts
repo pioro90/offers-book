@@ -1,5 +1,5 @@
 import * as mongoose from 'mongoose';
-import { DatabaseConfig } from './common/config/database/database-config';
+import { DatabaseConfig } from './common/config/database-config';
 
 export class AppDatabase {
     databaseUri: string;

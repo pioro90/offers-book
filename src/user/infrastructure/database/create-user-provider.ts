@@ -1,8 +1,8 @@
-import { ICreateUserProvider } from '../core/usecases/createuser/create-user-provider';
-import { User } from '../core/domain/user';
-import { CreateUserDto } from '../core/usecases/createuser/create-user-dto';
+import { ICreateUserProvider } from '../../core/usecases/createuser/create-user-provider';
+import { User } from '../../core/domain/user';
+import { CreateUserDto } from '../../core/usecases/createuser/create-user-dto';
 import { Model } from 'mongoose';
-import { IUser } from './database/user-model';
+import { IUser } from './model/user-model';
 
 
 export class CreateUserProvider implements ICreateUserProvider {

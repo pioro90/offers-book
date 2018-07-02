@@ -2,7 +2,7 @@ import * as chai from 'chai';
 
 import { chaiRequest } from '../common/chai-request';
 import users from './data/users.data';
-import { UserAppTest } from '../common/user-app.test';
+import { UserAppTest } from './user-app.test';
 import { appTest } from '../common/app-test';
 
 chai.should();

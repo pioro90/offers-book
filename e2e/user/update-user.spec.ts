@@ -2,7 +2,7 @@ import * as chai from 'chai';
 import { OK } from 'http-status';
 import users from './data/users.data';
 import { chaiRequest } from '../common/chai-request';
-import { UserAppTest } from '../common/user-app.test';
+import { UserAppTest } from './user-app.test';
 import { appTest } from '../common/app-test';
 
 

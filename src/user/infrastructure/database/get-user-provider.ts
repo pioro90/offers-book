@@ -1,7 +1,7 @@
-import { IGetUserProvider } from '../core/usecases/getuser/get-user-provider';
-import { User } from '../core/domain/user';
+import { IGetUserProvider } from '../../core/usecases/getuser/get-user-provider';
+import { User } from '../../core/domain/user';
 import { Model } from 'mongoose';
-import { IUser } from './database/user-model';
+import { IUser } from './model/user-model';
 
 export class GetUserProvider implements IGetUserProvider {
 

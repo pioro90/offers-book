@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
-import { FindUsersDto } from '../core/usecases/findusers/find-users-dto';
-import { User } from '../core/domain/user';
-import { IFindUsersProvider } from '../core/usecases/findusers/find-users-provider';
-import { FindUsersProvider } from '../dataproviders/find-users-provider';
-import { userModel } from '../dataproviders/database/user-model';
-import { FindUsersUseCase } from '../core/usecases/findusers/find-users-use-case';
+import { FindUsersDto } from '../../core/usecases/findusers/find-users-dto';
+import { User } from '../../core/domain/user';
+import { IFindUsersProvider } from '../../core/usecases/findusers/find-users-provider';
+import { FindUsersProvider } from '../database/find-users-provider';
+import { userModel } from '../database/model/user-model';
+import { FindUsersUseCase } from '../../core/usecases/findusers/find-users-use-case';
 
 
 export default async (req: Request, res: Response, next: NextFunction): Promise<void> => {

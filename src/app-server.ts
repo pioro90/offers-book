@@ -1,7 +1,7 @@
 import * as express from 'express';
 import * as helmet from 'helmet';
 import * as bodyParser from 'body-parser';
-import createUserRouter from './user/entrypoints/create-users-router';
+import createUserRouter from './user/infrastructure/entrypoints/create-users-router';
 
 
 export class AppServer {

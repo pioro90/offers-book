@@ -1,8 +1,8 @@
-import { IFindUsersProvider } from '../core/usecases/findusers/find-users-provider';
-import { User } from '../core/domain/user';
-import { FindUsersDto } from '../core/usecases/findusers/find-users-dto';
+import { IFindUsersProvider } from '../../core/usecases/findusers/find-users-provider';
+import { User } from '../../core/domain/user';
+import { FindUsersDto } from '../../core/usecases/findusers/find-users-dto';
 import { Model } from 'mongoose';
-import { IUser } from './database/user-model';
+import { IUser } from './model/user-model';
 
 export class FindUsersProvider implements IFindUsersProvider {
 
