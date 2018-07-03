@@ -9,27 +9,27 @@ export class FindUsersProvider implements IFindUsersProvider {
     constructor(private userModel: Model<IUser>) {
     }
 
-    findUsers(findUsersDto: FindUsersCommand): Promise<User[]> {
+    findUsers(findUsersCommand: FindUsersCommand): Promise<User[]> {
         const query = this.userModel.find({}, '-password');
 
-        if (findUsersDto.firstName) {
-            query.regex('firstName', new RegExp(`${findUsersDto.firstName}`, 'i'));
+        if (findUsersCommand.firstName) {
+            query.regex('firstName', new RegExp(`${findUsersCommand.firstName}`, 'i'));
         }
 
-        if (findUsersDto.lastName) {
-            query.regex('lastName', new RegExp(`${findUsersDto.lastName}`, 'i'));
+        if (findUsersCommand.lastName) {
+            query.regex('lastName', new RegExp(`${findUsersCommand.lastName}`, 'i'));
         }
 
-        if (findUsersDto.email) {
-            query.regex('email', new RegExp(`${findUsersDto.email}`, 'i'));
+        if (findUsersCommand.email) {
+            query.regex('email', new RegExp(`${findUsersCommand.email}`, 'i'));
         }
 
-        if (findUsersDto.start) {
-            query.skip(findUsersDto.start);
+        if (findUsersCommand.start) {
+            query.skip(findUsersCommand.start);
         }
 
-        if (findUsersDto.limit) {
-            query.limit(findUsersDto.limit);
+        if (findUsersCommand.limit) {
+            query.limit(findUsersCommand.limit);
         }
 
         return query.exec().then((users: IUser[]) => {

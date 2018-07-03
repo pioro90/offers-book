@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as helmet from 'helmet';
 import * as bodyParser from 'body-parser';
 import createUserRouter, { usersRootPath } from './user/infrastructure/entrypoints/createUsersRouter';
+import createCategoryRouter, { categoryRootPath } from './category/infrastructure/entrypoints/createCategoryRouter';
 
 
 export class AppServer {
@@ -14,6 +15,7 @@ export class AppServer {
         this.server.use(bodyParser.json());
 
         this.server.use(usersRootPath, createUserRouter());
+        this.server.use(categoryRootPath, createCategoryRouter());
     }
 }
 

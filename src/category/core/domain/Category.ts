@@ -1,9 +1,10 @@
 export class Category {
-    name: string;
-    description: string;
-    parent?: string;
-    ancestors?: string[];
-    createdAt: Date;
-    updatedAt: Date;
-    deletedAt?: Date;
+    constructor(public name: string,
+                public description: string,
+                public createdAt: Date,
+                public updatedAt: Date,
+                public parent?: string,
+                public ancestors?: string[],
+                public deletedAt?: Date) {
+    }
 }

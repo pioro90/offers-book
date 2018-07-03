@@ -8,8 +8,8 @@ export class UpdateUserProvider implements IUpdateUserProvider {
     constructor(private userModel: Model<IUser>) {
     }
 
-    async updateUser(updateUserDto: UpdateUserCommand): Promise<void> {
-        const user: IUser = await this.userModel.findById(updateUserDto.id);
+    async updateUser(updateUserCommand: UpdateUserCommand): Promise<void> {
+        const user: IUser = await this.userModel.findById(updateUserCommand.id);
         user.set({
             firstName: user.firstName
         });

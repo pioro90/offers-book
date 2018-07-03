@@ -4,7 +4,7 @@ import { User } from '../../domain/User';
 import { ICommandHandler } from '../../../../common/cqrs/ICommandHandler';
 
 
-export class FindUsersCommandHandler implements ICommandHandler<FindUsersCommand> {
+export class FindUsersCommandHandler implements ICommandHandler<FindUsersCommand, Promise<User[]>> {
 
     constructor(private findUsersProvider: IFindUsersProvider) {
     }

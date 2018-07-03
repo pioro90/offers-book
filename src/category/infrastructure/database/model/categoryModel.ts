@@ -11,4 +11,4 @@ export interface ICategory extends Document {
     deletedAt?: Date;
 }
 
-export const categoryModel: Model<ICategory> = model<ICategory>('User', categorySchema);
+export const categoryModel: Model<ICategory> = model<ICategory>('Category', categorySchema);

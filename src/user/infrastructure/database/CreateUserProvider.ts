@@ -1,17 +1,17 @@
-import { ICreateUserProvider } from '../../core/usecases/createuser/ICreateUserProvider';
+import { ICreateCategoryProvider } from '../../core/usecases/createuser/ICreateUserProvider';
 import { User } from '../../core/domain/User';
 import { CreateUserCommand } from '../../core/usecases/createuser/CreateUserCommand';
 import { Model } from 'mongoose';
 import { IUser } from './model/userModel';
 
 
-export class CreateUserProvider implements ICreateUserProvider {
+export class CreateUserProvider implements ICreateCategoryProvider {
 
     constructor(private userModel: Model<IUser>) {
     }
 
-    async createUser(createUserDto: CreateUserCommand): Promise<User> {
-        return this.userModel.create(createUserDto).then((user: IUser) => {
+    async createUser(createUserCommand: CreateUserCommand): Promise<User> {
+        return this.userModel.create(createUserCommand).then((user: IUser) => {
             return new User(user.id,
                 user.firstName,
                 user.lastName,

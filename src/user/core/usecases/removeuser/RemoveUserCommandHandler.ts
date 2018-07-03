@@ -2,7 +2,7 @@ import { IRemoveUserProvider } from './IRemoveUserProvider';
 import { ICommandHandler } from '../../../../common/cqrs/ICommandHandler';
 
 
-export class RemoveUserCommandHandler implements ICommandHandler<string> {
+export class RemoveUserCommandHandler implements ICommandHandler<string, Promise<void>> {
 
     constructor(private removeUserProvider: IRemoveUserProvider) {
     }

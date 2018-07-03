@@ -1,12 +1,12 @@
 import { CreateUserCommand } from './CreateUserCommand';
 import { User } from '../../domain/User';
-import { ICreateUserProvider } from './ICreateUserProvider';
+import { ICreateCategoryProvider } from './ICreateUserProvider';
 import { ICommandHandler } from '../../../../common/cqrs/ICommandHandler';
 
 
-export class CreateUserCommandHandler implements ICommandHandler<CreateUserCommand> {
+export class CreateUserCommandHandler implements ICommandHandler<CreateUserCommand, Promise<User>> {
 
-    constructor(private createUserProvider: ICreateUserProvider) {
+    constructor(private createUserProvider: ICreateCategoryProvider) {
     }
 
     async handle(command: CreateUserCommand): Promise<User> {

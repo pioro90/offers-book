@@ -3,7 +3,7 @@ import { UpdateUserCommand } from './UpdateUserCommand';
 import { ICommandHandler } from '../../../../common/cqrs/ICommandHandler';
 
 
-export class UpdateUserCommandHandler implements ICommandHandler<UpdateUserCommand> {
+export class UpdateUserCommandHandler implements ICommandHandler<UpdateUserCommand, Promise<void>> {
 
     constructor(private updateUserProvider: IUpdateUserProvider) {
     }
