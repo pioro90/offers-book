@@ -1,7 +1,7 @@
-import { App} from './app';
-import { AppDatabase } from './app-database';
-import { AppServer } from './app-server';
-import getDatabaseConfig from './common/config/database-config';
+import { App} from './App';
+import { AppDatabase } from './AppDatabase';
+import { AppServer } from './AppServer';
+import getDatabaseConfig from './common/config/DatabaseConfig';
 
 
 const appDatabase = new AppDatabase(getDatabaseConfig());

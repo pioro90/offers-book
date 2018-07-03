@@ -1,6 +1,6 @@
-import { App } from '../../src/app';
-import { AppDatabase } from '../../src/app-database';
-import { AppServer } from '../../src/app-server';
+import { App } from '../../src/App';
+import { AppDatabase } from '../../src/AppDatabase';
+import { AppServer } from '../../src/AppServer';
 
 
 const appTestDatabase = new AppDatabase({

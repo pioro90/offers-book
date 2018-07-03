@@ -1,5 +1,5 @@
-import { IUpdateUserProvider } from './update-user-provider';
-import { UpdateUserDto } from './update-user-dto';
+import { IUpdateUserProvider } from './IUpdateUserProvider';
+import { UpdateUserDto } from './UpdateUserDto';
 
 
 export class UpdateUserUseCase {

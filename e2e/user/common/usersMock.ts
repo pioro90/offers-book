@@ -1,4 +1,4 @@
-import { CreateUserDto } from '../../../src/user/core/usecases/createuser/create-user-dto';
+import { CreateUserDto } from '../../../src/user/core/usecases/createuser/CreateUserDto';
 
 const usersMock: CreateUserDto[] = [
     {

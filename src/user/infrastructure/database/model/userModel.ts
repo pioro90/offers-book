@@ -1,5 +1,5 @@
 import { Document, Model, model } from 'mongoose';
-import { UserSchema } from './user-schema';
+import { userSchema } from './userSchema';
 
 export interface IUser extends Document {
     firstName: string;
@@ -11,4 +11,4 @@ export interface IUser extends Document {
     deletedAt?: Date;
 }
 
-export const userModel: Model<IUser> = model<IUser>('User', UserSchema);
+export const userModel: Model<IUser> = model<IUser>('User', userSchema);

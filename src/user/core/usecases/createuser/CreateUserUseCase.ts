@@ -1,6 +1,6 @@
-import { CreateUserDto } from './create-user-dto';
-import { User } from '../../domain/user';
-import { ICreateUserProvider } from './create-user-provider';
+import { CreateUserDto } from './CreateUserDto';
+import { User } from '../../domain/User';
+import { ICreateUserProvider } from './ICreateUserProvider';
 
 
 export class CreateUserUseCase {

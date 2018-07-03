@@ -2,7 +2,7 @@ import { Schema } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 
 
-export const UserSchema: Schema = new Schema({
+export const userSchema: Schema = new Schema({
     firstName: {
         type: String,
         required: true,
@@ -34,7 +34,7 @@ export const UserSchema: Schema = new Schema({
     collection: 'users'
 });
 
-UserSchema.pre('save', function (next) {
+userSchema.pre('save', function (next) {
     if (!this.isModified('password')) return next();
 
     bcrypt

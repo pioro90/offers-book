@@ -1,5 +1,5 @@
-import { IGetUserProvider } from './get-user-provider';
-import { User } from '../../domain/user';
+import { IGetUserProvider } from './IGetUserProvider';
+import { User } from '../../domain/User';
 
 export class GetUserUseCase {
 

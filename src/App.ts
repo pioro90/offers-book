@@ -1,6 +1,6 @@
 import { Server } from 'http';
-import { AppServer } from './app-server';
-import { AppDatabase } from './app-database';
+import { AppServer } from './AppServer';
+import { AppDatabase } from './AppDatabase';
 
 
 export class App {

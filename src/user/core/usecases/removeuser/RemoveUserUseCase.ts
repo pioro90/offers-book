@@ -1,4 +1,4 @@
-import { IRemoveUserProvider } from './remove-user-provider';
+import { IRemoveUserProvider } from './IRemoveUserProvider';
 
 
 export class RemoveUserUseCase {

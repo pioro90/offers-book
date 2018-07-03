@@ -1,12 +1,12 @@
 import * as httpStatus from 'http-status';
 import { NextFunction, Request, Response } from 'express';
 
-import { CreateUserDto } from '../../core/usecases/createuser/create-user-dto';
-import { CreateUserUseCase } from '../../core/usecases/createuser/create-user-use-case';
-import { ICreateUserProvider } from '../../core/usecases/createuser/create-user-provider';
-import { CreateUserProvider } from '../database/create-user-provider';
-import { userModel } from '../database/model/user-model';
-import { User } from '../../core/domain/user';
+import { CreateUserDto } from '../../core/usecases/createuser/CreateUserDto';
+import { CreateUserUseCase } from '../../core/usecases/createuser/CreateUserUseCase';
+import { ICreateUserProvider } from '../../core/usecases/createuser/ICreateUserProvider';
+import { CreateUserProvider } from '../database/CreateUserProvider';
+import { userModel } from '../database/model/userModel';
+import { User } from '../../core/domain/User';
 
 
 export default async (req: Request, res: Response, next: NextFunction): Promise<void> => {

@@ -1,11 +1,12 @@
 import { Router } from 'express';
 
-import updateUser from './update-user';
-import createUser from './create-user';
-import findUsers from './find-users';
-import getUser from './get-user';
-import removeUser from './remove-user';
+import updateUser from './handleUpdateUser';
+import createUser from './handleCreateUser';
+import findUsers from './handleFindUsers';
+import getUser from './handleGetUser';
+import removeUser from './handleRemoveUser';
 
+export const usersRootPath: string = '/users';
 
 export default function (): Router {
     const router = Router();

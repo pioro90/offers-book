@@ -1,4 +1,4 @@
-import '../common/chai-bdd';
+import './chaiBdd';
 
-export { appTest } from './app-test';
-export { chaiRequest } from './chai-request';
+export { appTest } from './appTest';
+export { chaiRequest } from './chaiRequest';

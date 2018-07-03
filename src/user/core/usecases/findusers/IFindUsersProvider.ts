@@ -1,5 +1,5 @@
-import { FindUsersDto } from './find-users-dto';
-import { User } from '../../domain/user';
+import { FindUsersDto } from './FindUsersDto';
+import { User } from '../../domain/User';
 
 export interface IFindUsersProvider {
     findUsers(findUsersDto: FindUsersDto): Promise<User[]>;
