@@ -22,9 +22,35 @@ describe('Categories', () => {
             res.body.should.have.all.keys('ancestors',
                 'createdAt',
                 'description',
+                'id',
                 'name',
                 'updatedAt');
         });
     })
+
+    describe('POST /categories/:id', () => {
+        let parentCategoryId: string;
+
+        before(async () => {
+            const res: any = await chaiRequest
+                .post('/categories')
+                .send(categoriesMock[0]);
+            parentCategoryId = res.body.id;
+        });
+
+        it('should return subcategory', async () => {
+            const res: any = await chaiRequest
+                .post(`/categories/${parentCategoryId}`)
+                .send(categoriesMock[1]);
+            res.body.should.have.all.keys('ancestors',
+                'createdAt',
+                'description',
+                'id',
+                'parent',
+                'name',
+                'updatedAt');
+        });
+
+    });
 
 });

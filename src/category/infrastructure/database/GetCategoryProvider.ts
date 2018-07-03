@@ -1,16 +1,16 @@
-import { ICreateCategoryProvider } from '../../core/usecases/createcategory/ICreateCategoryProvider';
-import { CreateCategoryCommand } from '../../core/usecases/createcategory/CreateCategoryCommand';
+import { IGetCategoryProvider } from '../../core/usecases/createsubcategory/IGetCategoryProvider';
 import { Category } from '../../core/domain/Category';
 import { ICategory } from './model/categoryModel';
 import { Model } from 'mongoose';
 
-export class CreateCategoryProvider implements ICreateCategoryProvider {
+export class GetCategoryProvider implements IGetCategoryProvider {
 
     constructor(private categoryModel: Model<ICategory>) {
     }
 
-    createCategory(createCategoryCommand: CreateCategoryCommand): Promise<Category> {
-        return this.categoryModel.create(createCategoryCommand)
+    getCategory(id: string): Promise<Category> {
+        return this.categoryModel.findById(id)
+            .exec()
             .then((categoryDocument: ICategory) => {
                 return new Category(categoryDocument.id,
                     categoryDocument.name,
@@ -20,7 +20,6 @@ export class CreateCategoryProvider implements ICreateCategoryProvider {
                     categoryDocument.parent,
                     categoryDocument.ancestors,
                     categoryDocument.deletedAt);
-            });
+            })
     }
-
 }

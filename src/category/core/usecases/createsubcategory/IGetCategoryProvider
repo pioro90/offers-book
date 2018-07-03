@@ -1,0 +1,5 @@
+import { Category } from '../../domain/Category';
+
+export interface IGetCategoryProvider {
+    getCategory(id: string): Promise<Category>;
+}

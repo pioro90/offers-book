@@ -1,11 +1,11 @@
-import { ICreateCategoryProvider } from '../../core/usecases/createuser/ICreateUserProvider';
+import { ICreateUserProvider } from '../../core/usecases/createuser/ICreateUserProvider';
 import { User } from '../../core/domain/User';
 import { CreateUserCommand } from '../../core/usecases/createuser/CreateUserCommand';
 import { Model } from 'mongoose';
 import { IUser } from './model/userModel';
 
 
-export class CreateUserProvider implements ICreateCategoryProvider {
+export class CreateUserProvider implements ICreateUserProvider {
 
     constructor(private userModel: Model<IUser>) {
     }

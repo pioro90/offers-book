@@ -1,6 +1,6 @@
 import { CreateUserCommand } from './CreateUserCommand';
-import { Category } from '../../../../category/core/domain/Category';
+import { User } from '../../domain/User';
 
-export interface ICreateCategoryProvider {
-    createUser(createUserCommand: CreateUserCommand): Promise<Category>;
+export interface ICreateUserProvider {
+    createUser(createUserCommand: CreateUserCommand): Promise<User>;
 }
