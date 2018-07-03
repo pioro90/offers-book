@@ -1,15 +1,15 @@
 import { NextFunction, Request, Response } from 'express';
-import { FindUsersDto } from '../../core/usecases/findusers/FindUsersDto';
+import { FindUsersCommand } from '../../core/usecases/findusers/FindUsersCommand';
 import { User } from '../../core/domain/User';
 import { IFindUsersProvider } from '../../core/usecases/findusers/IFindUsersProvider';
 import { FindUsersProvider } from '../database/FindUsersProvider';
 import { userModel } from '../database/model/userModel';
-import { FindUsersUseCase } from '../../core/usecases/findusers/FindUsersUseCase';
+import { FindUsersCommandHandler } from '../../core/usecases/findusers/FindUsersCommandHandler';
 
 
 export default async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-        const findUsersDto: FindUsersDto = new FindUsersDto(
+        const findUsersCommand: FindUsersCommand = new FindUsersCommand(
             req.query.firstName,
             req.query.lastName,
             req.query.email,
@@ -17,9 +17,9 @@ export default async (req: Request, res: Response, next: NextFunction): Promise<
             parseInt(req.query.limit)
         );
         const findUsersProvider: IFindUsersProvider = new FindUsersProvider(userModel);
-        const findUsersUseCase: FindUsersUseCase = new FindUsersUseCase(findUsersProvider);
+        const findUsersCommandHandler: FindUsersCommandHandler = new FindUsersCommandHandler(findUsersProvider);
 
-        const users: User[] = await findUsersUseCase.findUsers(findUsersDto);
+        const users: User[] = await findUsersCommandHandler.handle(findUsersCommand);
         res.json(users);
     } catch (e) {
         next(e);

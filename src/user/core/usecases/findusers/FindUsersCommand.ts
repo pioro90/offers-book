@@ -1,4 +1,6 @@
-export class FindUsersDto {
+import { ICommand } from '../../../../common/cqrs/ICommand';
+
+export class FindUsersCommand implements ICommand {
     constructor(public firstName: string,
                 public lastName: string,
                 public email: string,

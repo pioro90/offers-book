@@ -1,6 +1,6 @@
-import { CreateUserDto } from './CreateUserDto';
+import { CreateUserCommand } from './CreateUserCommand';
 import { User } from '../../domain/User';
 
 export interface ICreateUserProvider {
-    createUser(createUserDto: CreateUserDto): Promise<User>;
+    createUser(createUserDto: CreateUserCommand): Promise<User>;
 }

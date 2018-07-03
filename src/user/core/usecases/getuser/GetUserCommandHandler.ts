@@ -1,12 +1,13 @@
 import { IGetUserProvider } from './IGetUserProvider';
 import { User } from '../../domain/User';
+import { ICommandHandler } from '../../../../common/cqrs/ICommandHandler';
 
-export class GetUserUseCase {
+export class GetUserCommandHandler implements ICommandHandler<string> {
 
     constructor(private getUserProvider: IGetUserProvider) {
     }
 
-    getUser(id: string): Promise<User> {
+    handle(id: string): Promise<User> {
         return this.getUserProvider.getUser(id);
     }
 }

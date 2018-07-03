@@ -1,12 +1,13 @@
 import { IRemoveUserProvider } from './IRemoveUserProvider';
+import { ICommandHandler } from '../../../../common/cqrs/ICommandHandler';
 
 
-export class RemoveUserUseCase {
+export class RemoveUserCommandHandler implements ICommandHandler<string> {
 
     constructor(private removeUserProvider: IRemoveUserProvider) {
     }
 
-    async removeUser(id: string): Promise<void> {
+    async handle(id: string): Promise<void> {
         return this.removeUserProvider.removeUser(id);
     }
 

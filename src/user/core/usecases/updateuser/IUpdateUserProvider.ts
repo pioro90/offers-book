@@ -1,5 +1,5 @@
-import { UpdateUserDto } from './UpdateUserDto';
+import { UpdateUserCommand } from './UpdateUserCommand';
 
 export interface IUpdateUserProvider {
-    updateUser(updateUserDto: UpdateUserDto): Promise<void>;
+    updateUser(updateUserDto: UpdateUserCommand): Promise<void>;
 }

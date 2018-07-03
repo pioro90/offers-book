@@ -1,6 +1,6 @@
 import { IFindUsersProvider } from '../../core/usecases/findusers/IFindUsersProvider';
 import { User } from '../../core/domain/User';
-import { FindUsersDto } from '../../core/usecases/findusers/FindUsersDto';
+import { FindUsersCommand } from '../../core/usecases/findusers/FindUsersCommand';
 import { Model } from 'mongoose';
 import { IUser } from './model/userModel';
 
@@ -9,7 +9,7 @@ export class FindUsersProvider implements IFindUsersProvider {
     constructor(private userModel: Model<IUser>) {
     }
 
-    findUsers(findUsersDto: FindUsersDto): Promise<User[]> {
+    findUsers(findUsersDto: FindUsersCommand): Promise<User[]> {
         const query = this.userModel.find({}, '-password');
 
         if (findUsersDto.firstName) {
