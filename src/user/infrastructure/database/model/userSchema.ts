@@ -24,12 +24,8 @@ export const userSchema: Schema = new Schema({
         required: true,
         min: 8,
         max: 32
-    },
-    deletedAt: {
-        type: Date
     }
 }, {
-    timestamps: true,
     strict: true,
     collection: 'users'
 });

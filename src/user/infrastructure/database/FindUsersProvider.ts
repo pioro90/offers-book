@@ -38,10 +38,7 @@ export class FindUsersProvider implements IFindUsersProvider {
                     user.firstName,
                     user.lastName,
                     user.email,
-                    user.password,
-                    user.createdAt,
-                    user.updatedAt,
-                    user.deletedAt);
+                    user.password);
             })
         });
     }

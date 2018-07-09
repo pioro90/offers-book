@@ -16,10 +16,7 @@ export class CreateUserProvider implements ICreateUserProvider {
                 user.firstName,
                 user.lastName,
                 user.email,
-                user.password,
-                user.createdAt,
-                user.updatedAt,
-                user.deletedAt);
+                user.password);
         });
     }
 }

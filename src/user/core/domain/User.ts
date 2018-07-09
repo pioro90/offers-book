@@ -3,9 +3,6 @@ export class User {
                 public firstName: string,
                 public lastName: string,
                 public email: string,
-                public password: string,
-                public createdAt: Date,
-                public updatedAt: Date,
-                public deletedAt?: Date) {
+                public password: string) {
     }
 }

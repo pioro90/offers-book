@@ -17,13 +17,11 @@ describe('Users', () => {
                 .post('/users')
                 .send(usersMock[0]);
 
-            res.body.should.have.all.keys('createdAt',
-                'email',
+            res.body.should.have.all.keys('email',
                 'firstName',
                 'id',
                 'lastName',
-                'password',
-                'updatedAt');
+                'password');
         });
     });
 
@@ -63,34 +61,13 @@ describe('Users', () => {
                 .get(`/users/${userId}`);
             const user: any = res.body;
 
-            user.should.have.all.keys(
-                'id',
-                'updatedAt',
-                'createdAt',
+            user.should.have.all.keys('id',
                 'firstName',
                 'lastName',
                 'password',
-                'email'
-            );
+                'email');
         });
 
-    });
-
-    describe('DELETE /users/:id', () => {
-        let userId: string;
-
-        before(async () => {
-            const res: any = await chaiRequest
-                .post('/users')
-                .send(usersMock[0]);
-            userId = res.body.id;
-        });
-
-        it('should return no content status', async () => {
-            const res: any = await chaiRequest
-                .del(`/users/${userId}`);
-            res.should.have.status(httpStatus.NO_CONTENT)
-        });
     });
 
     describe('PUT /users/:id', () => {
