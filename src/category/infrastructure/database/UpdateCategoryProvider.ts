@@ -11,9 +11,12 @@ export class UpdateCategoryProvider implements IUpdateCategoryProvider {
     async updateCategory(category: Category): Promise<void> {
         const categoryDocument: ICategory = await this.categoryModel.findById(category.id);
         categoryDocument.set({
+            name: category.name,
+            description: category.description,
             parent: category.parent,
-
+            ancestors: category.ancestors
         });
+
         await categoryDocument.save();
 
         return Promise.resolve();

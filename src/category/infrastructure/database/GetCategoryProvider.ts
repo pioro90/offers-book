@@ -8,7 +8,7 @@ export class GetCategoryProvider implements IGetCategoryProvider {
     constructor(private categoryModel: Model<ICategory>) {
     }
 
-    getCategory(id: string): Promise<Category> {
+    async getCategory(id: string): Promise<Category> {
         return this.categoryModel.findById(id)
             .exec()
             .then((categoryDocument: ICategory) => {
