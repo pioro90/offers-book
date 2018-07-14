@@ -35,11 +35,13 @@
     "typescript": "^2.7.2"
   },
   "dependencies": {
+    "@types/uuid": "^3.4.3",
     "bcrypt": "^1.0.3",
     "config": "^1.29.4",
     "express": "^4.16.2",
     "helmet": "^3.11.0",
     "http-status": "^1.0.1",
-    "mongoose": "^5.1.7"
+    "mongoose": "^5.1.7",
+    "uuid": "^3.3.2"
   }
 }

@@ -1,7 +1,7 @@
 import * as express from 'express';
 import * as helmet from 'helmet';
 import * as bodyParser from 'body-parser';
-import createUserRouter, { usersRootPath } from './user/infrastructure/entrypoints/createUsersRouter';
+import createUserRouter, { usersRootPath } from './user/infrastructure/api/createUsersRouter';
 import createCategoryRouter, { categoryRootPath } from './category/infrastructure/entrypoints/createCategoryRouter';
 
 
