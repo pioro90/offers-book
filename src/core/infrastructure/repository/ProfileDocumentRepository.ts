@@ -2,6 +2,7 @@ import { Model } from 'mongoose';
 import { ProfileRepository } from '../../domain/profile/ProfileRepository';
 import { ProfileDocument } from './schema/profileModel';
 import { Profile } from '../../domain/profile/Profile';
+import { AggregateId } from '../../../common/ddd/AggregateId';
 
 export class ProfileDocumentRepository implements ProfileRepository {
 
@@ -12,7 +13,11 @@ export class ProfileDocumentRepository implements ProfileRepository {
     load(id: string): Promise<Profile> {
         return this.profileModel.findById(id)
             .exec()
-            .then((profileDocument: ProfileDocument) => profileDocument as Profile);
+            .then((profileDocument: ProfileDocument) => {
+                const aggregateId: AggregateId = new AggregateId(profileDocument.id);
+
+                return new Profile(aggregateId, profileDocument.name, profileDocument.rightsIds);
+            });
     }
 
     save(profile: Profile): Promise<void> {

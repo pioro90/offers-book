@@ -3,7 +3,7 @@ import { AddProfileCommand } from '../../../src/core/commands/addprofile/AddProf
 const profilesMock: AddProfileCommand[] = [
     {
         name: 'Admin',
-        rightsIds: ['aaa-bbb-ccc']
+        rightsIds: []
     },
     {
         name: 'Guest',
