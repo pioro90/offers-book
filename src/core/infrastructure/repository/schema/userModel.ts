@@ -7,6 +7,7 @@ export interface UserDocument extends Document {
     lastName: string;
     email: string;
     password: string;
+    profilesIds: string[]
 }
 
 export const userModel: Model<UserDocument> = model<UserDocument>('User', userSchemaDefinition);

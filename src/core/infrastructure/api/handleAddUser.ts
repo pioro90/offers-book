@@ -4,7 +4,6 @@ import { NextFunction, Request, Response } from 'express';
 import { AddUserCommand } from '../../commands/adduser/AddUserCommand';
 import { AddUserCommandHandler } from '../../commands/adduser/AddUserCommandHandler';
 import { userModel } from '../repository/schema/userModel';
-import { User } from '../../domain/user/User';
 import { UserRepository } from '../../domain/user/UserRepository';
 import { UserDocumentRepository } from '../repository/UserDocumentRepository';
 import { UserFactory } from '../../domain/user/UserFactory';

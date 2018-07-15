@@ -8,7 +8,30 @@ export class User extends BaseAggregate {
                 private lastName: string,
                 private email: string,
                 private passwordHash: string,
-                private profiles: AggregateId[] = []) {
+                private profilesIds: string[] = []) {
         super(aggregateId);
+    }
+
+    changeFirstName(firstName: string): void {
+        this.firstName = firstName;
+    }
+
+    changeLastName(lastName: string): void {
+        this.lastName = lastName;
+    }
+
+    changePassword(password: string): void {
+        // TODO password hashing
+        this.passwordHash = password;
+    }
+
+    addProfiles(profilesIds: string[]): void {
+        this.profilesIds.push(...profilesIds);
+    }
+
+    removeProfiles(profilesIds: string[]): void {
+        this.profilesIds = this.profilesIds.filter((profileId: string) => {
+            return profilesIds.indexOf(profileId) !== 0
+        });
     }
 }

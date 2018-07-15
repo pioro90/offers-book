@@ -25,6 +25,9 @@ export const userSchemaDefinition: Schema = new Schema({
         required: true,
         min: 8,
         max: 32
+    },
+    profilesIds: {
+        type: [String]
     }
 }, {
     strict: true,

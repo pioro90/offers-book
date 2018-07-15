@@ -1,18 +1,28 @@
 import { Model } from 'mongoose';
 
 import { User } from '../../domain/user/User';
-import { RightDocument } from './schema/userModel';
+import { UserDocument } from './schema/userModel';
+import { AggregateId } from '../../../common/ddd/AggregateId';
 
 export class UserDocumentRepository implements UserDocumentRepository {
 
-    constructor(private userModel: Model<RightDocument>) {
+    constructor(private userModel: Model<UserDocument>) {
     }
 
 
     load(id: string): Promise<User> {
         return this.userModel.findById(id)
             .exec()
-            .then((userDocument: RightDocument) => userDocument as User);
+            .then((userDocument: UserDocument) => {
+                const aggregateId: AggregateId = new AggregateId(userDocument.id);
+
+                return new User(aggregateId,
+                    userDocument.firstName,
+                    userDocument.lastName,
+                    userDocument.email,
+                    userDocument.password,
+                    userDocument.profilesIds);
+            });
     }
 
     save(user: User): Promise<void> {

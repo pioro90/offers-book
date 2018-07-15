@@ -16,7 +16,8 @@ export class UserDocumentFinder implements UserFinder {
                 return {
                     firstName: userDocument.firstName,
                     lastName: userDocument.lastName,
-                    email: userDocument.email
+                    email: userDocument.email,
+                    profilesIds: userDocument.profilesIds
                 }
             });
     }
