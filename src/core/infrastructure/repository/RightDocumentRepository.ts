@@ -13,7 +13,10 @@ export class RightDocumentRepository implements RightRepository {
     load(id: string): Promise<Right> {
         return this.rightModel.findById(id)
             .exec()
-            .then((rightDocument: RightDocument) => rightDocument as Right);
+            .then((rightDocument: RightDocument) => {
+                const aggregateId: AggregateId = new AggregateId(rightDocument.id);
+                return new Right(aggregateId, rightDocument.code, rightDocument.description);
+            });
     }
 
     loadAll(ids: string[]): Promise<Right[]> {

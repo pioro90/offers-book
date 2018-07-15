@@ -8,4 +8,12 @@ export class Right extends BaseAggregate {
         super(aggregateId);
     }
 
+    changeCode(code: string): void {
+        this.code = code;
+    }
+
+    changeDescription(description: string): void {
+        this.description = description;
+    }
 }
+
