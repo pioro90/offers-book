@@ -41,7 +41,7 @@ describe('Profile', () => {
 
     });
 
-    describe('POST /profiles/:id/rights', () => {
+    describe('PUT /profiles/:id', () => {
         let profileId: string;
         let rightsIds: string[];
 
@@ -63,15 +63,24 @@ describe('Profile', () => {
 
         after(async () => await cleanRightsDatabase());
 
-        it('should add rights to profile', async () => {
+        it('should modify profile', async () => {
+            const profileChanges = {
+                name: 'New profile',
+                rights: {
+                    addedRights: rightsIds
+                }
+            };
+
             await chaiRequest
-                .post(`/profiles/${profileId}/rights`)
-                .send({rightsIds});
-            const profiles: ProfileView = await chaiRequest
+                .put(`/profiles/${profileId}`)
+                .send(profileChanges);
+
+            const profileAfterChange: ProfileView = await chaiRequest
                 .get(`/profiles/${profileId}`)
                 .then((res: any) => res.body as ProfileView);
 
-            profiles.rightsIds.should.have.length(2);
+            profileAfterChange.name.should.equal(profileChanges.name);
+            profileAfterChange.rightsIds.should.deep.equal(profileChanges.rights.addedRights);
         });
     });
 

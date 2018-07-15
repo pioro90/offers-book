@@ -9,10 +9,17 @@ export class Profile extends BaseAggregate {
         super(aggregateId);
     }
 
-    addRights(rights: Right[]): void {
-        const rightsIds: string[] = rights.map((right: Right) => {
-            return right.aggregateId.id;
-        });
+    addRights(rightsIds: string[]): void {
         this.rightsIds.push(...rightsIds);
+    }
+
+    removeRights(rightsIds: string[]): void {
+        this.rightsIds = this.rightsIds.filter((rightId: string) => {
+           return rightsIds.indexOf(rightId) !== 0
+        });
+    }
+
+    changeName(name: string): void {
+        this.name = name;
     }
 }
